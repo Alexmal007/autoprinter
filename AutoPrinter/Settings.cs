@@ -48,7 +48,7 @@ namespace AutoPrinter
                 {
                     SelectedPort = storedSettings.ContainsKey("port") ? int.Parse(storedSettings["port"]) : 25120;
                     SelectedPrinter = storedSettings.ContainsKey("device") ? storedSettings["device"] : PrinterController.GetDefaultPrinter();
-                    SelectedUrl = storedSettings.ContainsKey("url") ? storedSettings["url"] : "https://alexmal.ru/auto_print/test.png";
+                    SelectedUrl = storedSettings.ContainsKey("url") ? storedSettings["url"] : "http://alexmal.ru/auto_print/test.png";
                 }
                 catch (FormatException ignore)
                 {
@@ -59,7 +59,7 @@ namespace AutoPrinter
             {
                 SelectedPort = 25120;
                 SelectedPrinter = PrinterController.GetDefaultPrinter();
-                SelectedUrl = "https://alexmal.ru/auto_print/test.png";
+                SelectedUrl = "http://alexmal.ru/auto_print/test.png";
                 File.WriteAllText("cfg/settings.cfg", $"port={SelectedPort}\r\ndevice={SelectedPrinter}\r\nurl={SelectedUrl}");
             }
         }
