@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace AutoPrinter
 {
     /// <summary>
@@ -69,6 +70,12 @@ namespace AutoPrinter
             portSelect.Text = port.ToString();
             urlSelect.Text = url;
             deviceSelect.Text = printer;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            AppController.OpenSettings();
         }
     }
 }
