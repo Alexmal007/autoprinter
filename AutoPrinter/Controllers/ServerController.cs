@@ -73,6 +73,7 @@ namespace AutoPrinter.Controllers
             {
                 MessageBox.Show("Server crashed!");
                 Logger.Info($"Server crashed with following reason: {ex.Message}");
+                Logger.Info($"Full stack trace:\r\n{ex.ToString()}");
             }
         }
 

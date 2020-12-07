@@ -12,7 +12,7 @@ namespace AutoPrinter
         public static void Info(string msg)
         {
             var date = DateTime.Now;
-            var dateLogName = date.ToShortDateString();
+            var dateLogName = $"{date.Day}-{date.Month}-{date.Year}";
             var fullStr = $"[{date.ToLongTimeString()}] {msg}\r\n";
             File.AppendAllText($"logs/{dateLogName}.log", fullStr);
         }
