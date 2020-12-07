@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoPrinter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:tb="http://www.hardcodet.net/taskbar"        
+        Title="MainWindow" Height="253.361" Width="407.983" >
+
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <tb:TaskbarIcon x:Name="apNotifyIcon"
+                        Visibility="Visible"
+                        ToolTipText="AutoPrinter is running."
+                        IconSource="/Icons/tray_icon.ico"
+                        MenuActivation="LeftOrRightClick"
+                        PopupActivation="RightClick"
+                        TrayMouseDoubleClick="ApNotifyIcon_TrayMouseDoubleClick">
+        </tb:TaskbarIcon>
+        <Label Grid.Column="0" Grid.Row="0" Content="Selected printer" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,15" Width="190"/>
+        <ComboBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="190" Margin="0,17" Name="deviceSelect" x:FieldModifier="public"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="Port to listen" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,15" Width="190"/>
+        <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Height="24" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="190" Margin="0,16,10,16" Name="portSelect"/>
+        <Label Grid.Column="0" Grid.Row="2" Content="Download URL" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,15" Width="190"/>
+        <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Height="24" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="190" Margin="0,16,10,16" Name="urlSelect"/>
+        <Button Grid.Column="0" Grid.Row="3" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Name="settingsSave" Click="SettingsSave_Click"/>
+        <Button Grid.Column="1" Grid.Row="3" Content="Reset" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Name="settingsReset" Click="SettingsReset_Click"/>
     </Grid>
 </Window>
